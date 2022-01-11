@@ -21,16 +21,16 @@ def help(cmd="0"):
 
     # default help
     if cmd == "0":
-        for com in help_dic.values():
-            print com
+        for com in list(help_dic.values()):
+            print(com)
     else:
-        print help_dic[cmd]
+        print(help_dic[cmd])
 
 
 def wake(ip):
-    print "Sending packets to:", ip  # (EN) Sending magic packet to: IP
+    print("Sending packets to:", ip)  # (EN) Sending magic packet to: IP
     mac = arp[ip]
-    print "MAC:", mac
+    print("MAC:", mac)
     wake_on_lan(mac)
     """
     time.sleep(2)
@@ -46,7 +46,7 @@ def wake(ip):
 
 def connect(ip, port):
     # (EN) Trying connection to IP:Port
-    print "Trying connection to", ip + ":" + port
+    print("Trying connection to", ip + ":" + port)
     try_connection(ip, port)
     time.sleep(2)
     send_cmd(sock)
@@ -59,7 +59,7 @@ def read_arp():
 
     for line in arch:
         line = line.strip().split("-")
-        print line
+        print(line)
     arch.close()
 
 
@@ -87,7 +87,7 @@ def send_cmd(s):
     while True:
         # Se ingresa por teclado el comando que deseamos
         # (EN) Gets command from user
-        cmd = raw_input("command->")
+        cmd = input("command->")
 
         # enviamos el comando
         # (EN) Sends the command
@@ -101,7 +101,7 @@ def send_cmd(s):
 
         # se imprime por pantalla la salida
         # (EN) Prints output
-        print output
+        print(output)
 
 
 def try_connection(ip, port):
@@ -111,7 +111,7 @@ def try_connection(ip, port):
         server_address = (ip, int(port))
         sock.connect(server_address)
     except socket.error:
-        print "[ERROR] Could not establish a connection to the server"
+        print("[ERROR] Could not establish a connection to the server")
 
 
 ###### ARGS

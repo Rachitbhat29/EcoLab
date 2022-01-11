@@ -15,4 +15,4 @@ try:
 
 except IOError as e:
     if not os.access(filename, os.W_OK):
-        print "Permission Denied"
+        print("Permission Denied")

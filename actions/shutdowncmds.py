@@ -21,4 +21,4 @@ try:
             subprocess.call(soft_link, shell=True)
 except IOError as e:
     if not os.access(script_path, os.W_OK):
-        print "Permission Denied"
+        print("Permission Denied")
